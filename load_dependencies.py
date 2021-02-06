@@ -14,7 +14,7 @@ def install(package):
 def uninstall(package):
     subprocess.check_call([sys.executable, "-m", "pip", "uninstall", package])
     
-def load_all():
+if __name__ == "__main__":
     uninstall("tensorflow")
     uninstall("tensorflow-gpu")
     install("opencv-python==4.2.0.34")

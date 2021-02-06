@@ -15,7 +15,6 @@ from glob import glob
 
 import os, random, cv2, argparse
 from hparams import hparams, get_image_list
-from load_dependencies import load_all
 
 parser = argparse.ArgumentParser(description='Code to train the expert lip-sync discriminator')
 
@@ -245,10 +244,6 @@ def load_checkpoint(path, model, optimizer, reset_optimizer=False):
     return model
 
 if __name__ == "__main__":
-    
-    #we add this to call all the environement variables
-    load_all()
-
 
     checkpoint_dir = args.checkpoint_dir
     checkpoint_path = args.checkpoint_path
