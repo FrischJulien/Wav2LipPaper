@@ -12,7 +12,7 @@ def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 def uninstall(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "uninstall", package])
+    subprocess.check_call([sys.executable, "-m", "pip", "uninstall", package],stdout=open(os.devnull,'wb'), stderr=STDOUT)
     
 if __name__ == "__main__":
     uninstall("tensorflow")
