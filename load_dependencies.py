@@ -5,11 +5,11 @@ import os
 
 
 def app_get(filetoinstall):
-    check_call(['apt-get', 'install', '-y', filetoinstall],stdout=open(os.devnull,'wb'), stderr=STDOUT) 
+    subprocess.check_call(['apt-get', 'install', '-y', filetoinstall],stdout=open(os.devnull,'wb'), stderr=STDOUT) 
 
 
 def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package],stdout=open(os.devnull,'wb'), stderr=STDOUT)
 
 def uninstall(package):
     subprocess.check_call([sys.executable, "-m", "pip", "uninstall", package],stdout=open(os.devnull,'wb'), stderr=STDOUT)
