@@ -9,14 +9,14 @@ def app_get(filetoinstall):
 
 
 def install(package):
-    subprocess.check_call([sys.executable, "-m", "pip", "install", package],stdout=open(os.devnull,'wb'), stderr=STDOUT)
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
 def uninstall(package):
     subprocess.check_call([sys.executable, "-m", "pip", "uninstall", package],stdout=open(os.devnull,'wb'), stderr=STDOUT)
     
 if __name__ == "__main__":
-    uninstall("tensorflow")
-    uninstall("tensorflow-gpu")
+    #uninstall("tensorflow")
+    #uninstall("tensorflow-gpu")
     install("opencv-python==4.2.0.34")
     install("librosa==0.7.0")
     install("opencv-contrib-python>=4.2.0.34")
