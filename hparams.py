@@ -78,7 +78,8 @@ hparams = HParams(
 	
 	batch_size=16,
 	initial_learning_rate=1e-4,
-	nepochs=200000000000000000,  ### ctrl + c, stop whenever eval loss is consistently greater than train loss for ~10 epochs
+	#nepochs=200000000000000000,  ### ctrl + c, stop whenever eval loss is consistently greater than train loss for ~10 epochs
+	nepochs=30,  ### ctrl + c, stop whenever eval loss is consistently greater than train loss for ~10 epochs
 	num_workers=16,
     #checkpoint_interval=3000,
 	checkpoint_interval=10,
