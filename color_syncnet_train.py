@@ -23,6 +23,9 @@ parser.add_argument("--data_root", help="Root folder of the preprocessed LRS2 da
 parser.add_argument('--checkpoint_dir', help='Save checkpoints to this directory', required=True, type=str)
 parser.add_argument('--checkpoint_path', help='Resumed from this checkpoint', default=None, type=str)
 
+#we add a model save option
+parser.add_argument('--model_dir', help='Save model in this directory', default=None, type=str)
+
 args = parser.parse_args()
 
 
@@ -247,6 +250,8 @@ if __name__ == "__main__":
 
     checkpoint_dir = args.checkpoint_dir
     checkpoint_path = args.checkpoint_path
+    #We define our model_path
+    model_path = args.model_dir + "color_syncnet"
 
     if not os.path.exists(checkpoint_dir): os.mkdir(checkpoint_dir)
 
@@ -278,3 +283,6 @@ if __name__ == "__main__":
           checkpoint_dir=checkpoint_dir,
           checkpoint_interval=hparams.syncnet_checkpoint_interval,
           nepochs=hparams.nepochs)
+          
+    #we add a save option
+    save(model.state_dict(),model_path)
