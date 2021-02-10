@@ -285,4 +285,6 @@ if __name__ == "__main__":
           nepochs=hparams.nepochs)
           
     #we add a save option
-    save(model.state_dict(),model_path)
+    if not os.path.exists(model_dir):
+        os.makedirs(model_dire)
+    torch.save(model.state_dict(),model_path)
