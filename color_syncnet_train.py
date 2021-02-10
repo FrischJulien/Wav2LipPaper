@@ -286,5 +286,5 @@ if __name__ == "__main__":
           
     #we add a save option
     if not os.path.exists(model_dir):
-        os.makedirs(model_dire)
+        os.mkdir(model_dir)
     torch.save(model.state_dict(),model_path)
