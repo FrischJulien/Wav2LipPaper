@@ -288,7 +288,7 @@ if __name__ == "__main__":
     if not os.path.exists(model_dir):
         os.mkdir(model_dir)
         model_path = model_dir+"/color_syncnet.pth"
-        print('\Model Path{}'.format(model_path))
+        print('\nModel Path : {}'.format(model_path))
         torch.save(model.state_dict(),model_path)
     else:
         print('\nExisting model found at ' + model_dir)
