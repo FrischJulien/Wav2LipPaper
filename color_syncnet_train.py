@@ -287,7 +287,9 @@ if __name__ == "__main__":
     #we add a save option
     if not os.path.exists(model_dir):
         os.mkdir(model_dir)
-        torch.save(model.state_dict(),model_dir)
+        model_path = model_dir+"/color_syncnet.pth"
+        print('\Model Path{}'.format(model_path))
+        torch.save(model.state_dict(),model_path)
     else:
         print('\nExisting model found at ' + model_dir)
         print('\nDid not overwrite old model. Run the job again with a different location to store the model')
