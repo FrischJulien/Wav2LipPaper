@@ -24,7 +24,7 @@ parser.add_argument('--checkpoint_dir', help='Save checkpoints to this directory
 parser.add_argument('--checkpoint_path', help='Resumed from this checkpoint', default=None, type=str)
 
 #we add a model save option
-parser.add_argument('--model_dir', help='Save model in this directory', default=None, type=str)
+parser.add_argument('--model_dir', help='Save model in this directory', required=True, type=str)
 
 args = parser.parse_args()
 
@@ -251,7 +251,7 @@ if __name__ == "__main__":
     checkpoint_dir = args.checkpoint_dir
     checkpoint_path = args.checkpoint_path
     #We define our model_path
-    model_path = args.model_dir + "color_syncnet"
+    model_dir = args.model_dir
 
     if not os.path.exists(checkpoint_dir): os.mkdir(checkpoint_dir)
 
@@ -287,4 +287,7 @@ if __name__ == "__main__":
     #we add a save option
     if not os.path.exists(model_dir):
         os.mkdir(model_dir)
-    torch.save(model.state_dict(),model_path)
+        torch.save(model.state_dict(),model_dir)
+    else:
+        print('\nExisting model found at ' + model_dir)
+        print('\nDid not overwrite old model. Run the job again with a different location to store the model')
